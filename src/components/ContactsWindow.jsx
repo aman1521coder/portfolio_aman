@@ -128,7 +128,15 @@ export default function ContactsWindow({ onClose }) {
                 {r.icon}
               </span>
               <span style={{ color: K.dimBright, minWidth: 70, fontSize: 11 }}>{r.label}</span>
-              <span style={{ color: K.cyanBright, flex: 1, fontSize: 12 }}>{r.val}</span>
+              <a
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: K.cyanBright, flex: 1, fontSize: 12, textDecoration: "underline", wordBreak: "break-all" }}
+                onClick={e => e.stopPropagation()}
+              >
+                {r.val}
+              </a>
               <button
                 onClick={() => copy(r.val, r.label)}
                 style={{

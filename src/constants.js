@@ -81,12 +81,9 @@ export const SKILLS = [
 // ── CONTACTS ──────────────────────────────────────────────────────────
 // ⚠️  REPLACE these values with your real details
 export const CONTACTS = [
-  { icon: "✉",  label: "Email",    val: "your@email.com",               href: "mailto:your@email.com" },
-  { icon: "⬡",  label: "GitHub",   val: "github.com/yourhandle",        href: "https://github.com/yourhandle" },
-  { icon: "in", label: "LinkedIn", val: "linkedin.com/in/yourhandle",   href: "https://linkedin.com/in/yourhandle" },
-  { icon: "↑",  label: "Upwork",   val: "upwork.com/fl/yourhandle",     href: "https://upwork.com" },
-  { icon: "✈",  label: "Telegram", val: "@yourhandle",                  href: "https://t.me/yourhandle" },
-  { icon: "◈",  label: "Discord",  val: "yourhandle#0000",              href: "#" },
+  { icon: "✉",  label: "Email",    val: "amanesu15151@gmail.com",               href: "mailto:amanesu15151@gmail.com" },
+  { icon: "⬡",  label: "GitHub",   val: "aman1521coder",        href: "https://github.com/aman1521coder" },
+  { icon: "in", label: "LinkedIn", val: "linkedin.com/in/amanuel-esayase-8b941532b",   href: "https://linkedin.com/in/amanuel-esayase-8b941532b" },
 ];
 
 // ── BOOT SEQUENCE ─────────────────────────────────────────────────────

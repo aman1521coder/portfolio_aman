@@ -137,6 +137,7 @@ export default function renderCmd(raw) {
           ["Cloud",   "AWS · GCP · Docker · K8s",     K.white],
           ["Upwork",  "Top Rated Plus · 98% JSS",     K.yellow],
           ["Uptime",  "5yr · 50+ jobs · $0 disputes", K.green],
+          
         ].map(([k, v, c]) => (
           <div key={k} style={{ marginBottom: 5, fontSize: 12 }}>
             <span style={{ color: K.blue }}>{k}: </span>

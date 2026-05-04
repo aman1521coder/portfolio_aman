@@ -300,7 +300,7 @@ export default function App() {
               </div>
               <div style={{ color: K.dim, fontSize: 12, marginTop: 2 }}>
                 Try:{" "}
-                {["whoami", "neofetch", "ls projects/", "cat skills.txt", "contacts"].map((cmd, i, arr) => (
+                {["whoami", "neofetch", "ls projects/", "cat skills.txt", "contacts","clear","help"].map((cmd, i, arr) => (
                   <span key={cmd}>
                     <span
                       style={{ color: K.yellow, cursor: "pointer" }}
