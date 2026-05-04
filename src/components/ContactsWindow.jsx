@@ -11,13 +11,13 @@ export default function ContactsWindow({ onClose }) {
   };
 
   return (
-    <div style={{
+    <div className="contacts-overlay" style={{
       position: "fixed", inset: 0, zIndex: 300,
       display: "flex", alignItems: "center", justifyContent: "center",
       background: "rgba(7,8,16,0.88)", backdropFilter: "blur(6px)",
       animation: "fadeIn 0.2s ease",
     }}>
-      <div style={{
+      <div className="contacts-window" style={{
         width: "min(540px, 95vw)",
         background: K.bgPanel,
         border: `1px solid ${K.borderGlow}`,
@@ -55,7 +55,7 @@ export default function ContactsWindow({ onClose }) {
         </div>
 
         {/* Content */}
-        <div style={{ padding: 24 }}>
+        <div className="contacts-content" style={{ padding: 24 }}>
           <div style={{ color: K.cyan, fontSize: 11, letterSpacing: 2, marginBottom: 6 }}>
             $ cat contacts.cfg
           </div>
@@ -64,7 +64,7 @@ export default function ContactsWindow({ onClose }) {
           </div>
 
           {/* Photo + Bio strip */}
-          <div style={{
+          <div className="contacts-profile" style={{
             display: "flex", gap: 16, alignItems: "center", marginBottom: 22,
             padding: "14px 16px", background: K.bgCard,
             border: `1px solid ${K.border}`, borderLeft: `3px solid ${K.blue}`,
@@ -85,7 +85,7 @@ export default function ContactsWindow({ onClose }) {
                 background: `linear-gradient(135deg, transparent 55%, ${K.blue}22)`,
               }} />
             </div>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <div style={{ color: K.white, fontWeight: "bold", marginBottom: 3, fontSize: 14 }}>
                 Amanuel Esayase
               </div>
@@ -109,6 +109,7 @@ export default function ContactsWindow({ onClose }) {
           {CONTACTS.map(r => (
             <div
               key={r.label}
+              className="contacts-row"
               style={{
                 display: "flex", alignItems: "center", gap: 12,
                 padding: "9px 14px", marginBottom: 6,
@@ -127,11 +128,12 @@ export default function ContactsWindow({ onClose }) {
               <span style={{ color: K.blue, minWidth: 20, textAlign: "center", fontSize: 13 }}>
                 {r.icon}
               </span>
-              <span style={{ color: K.dimBright, minWidth: 70, fontSize: 11 }}>{r.label}</span>
+              <span className="contacts-label" style={{ color: K.dimBright, minWidth: 70, fontSize: 11 }}>{r.label}</span>
               <a
                 href={r.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="contacts-link"
                 style={{ color: K.cyanBright, flex: 1, fontSize: 12, textDecoration: "underline", wordBreak: "break-all" }}
                 onClick={e => e.stopPropagation()}
               >
@@ -139,6 +141,7 @@ export default function ContactsWindow({ onClose }) {
               </a>
               <button
                 onClick={() => copy(r.val, r.label)}
+                className="contacts-copy"
                 style={{
                   background: "none",
                   border: `1px solid ${cp === r.label ? K.green : K.border}`,

@@ -93,9 +93,9 @@ export default function renderCmd(raw) {
       </div>
       <div style={{ display: "grid", gap: 3 }}>
         {HELP_CMDS.map(([c, d]) => (
-          <div key={c} style={{ display: "flex", gap: 10, padding: "4px 8px", borderBottom: `1px solid ${K.dim}22` }}>
-            <span style={{ color: K.cyan, minWidth: 220, fontSize: 12 }}>{c}</span>
-            <span style={{ color: K.dimBright, fontSize: 12 }}>— {d}</span>
+          <div key={c} style={{ display: "flex", gap: 10, padding: "4px 8px", borderBottom: `1px solid ${K.dim}22`, flexWrap: "wrap" }}>
+            <span style={{ color: K.cyan, minWidth: "min(220px, 100%)", fontSize: 12 }}>{c}</span>
+            <span style={{ color: K.dimBright, fontSize: 12, flex: 1, minWidth: 180 }}>— {d}</span>
           </div>
         ))}
       </div>
@@ -204,7 +204,7 @@ export default function renderCmd(raw) {
       <div style={{ marginTop: 10 }}>
         <div style={{ color: K.yellow, fontWeight: "bold", fontSize: 15, marginBottom: 4 }}>{p.title}</div>
         <div style={{ color: K.dim, fontSize: 10, marginBottom: 14 }}>── {p.name} ─────────────────</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, maxWidth: 500, marginBottom: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))", gap: 8, maxWidth: 500, marginBottom: 14 }}>
           {[["Stack", p.stack, K.cyan], ["Status", p.status, K.green], ["Rating", p.rating, K.yellow]].map(([k, v, c]) => (
             <div key={k} style={{ padding: "9px 13px", background: K.bgCard, border: `1px solid ${K.border}` }}>
               <div style={{ color: K.dimBright, fontSize: 10, marginBottom: 3 }}>{k}</div>
@@ -250,7 +250,7 @@ export default function renderCmd(raw) {
   if (t === "upwork") return (
     <div style={{ marginTop: 10 }}>
       <div style={{ color: K.yellow, letterSpacing: 2, fontSize: 11, marginBottom: 16 }}>▓▓▓ UPWORK PROFILE ▓▓▓</div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, maxWidth: 520, marginBottom: 16 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))", gap: 10, maxWidth: 520, marginBottom: 16 }}>
         {[
           ["Job Success","98%",K.green], ["Rating","4.97/5",K.yellow], ["Total Jobs","50+",K.cyan],
           ["Hours","1,200+",K.blue], ["Status","Top Rated+",K.orange], ["Repeat","70%+",K.purple],

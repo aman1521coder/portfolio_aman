@@ -130,6 +130,102 @@ export default function App() {
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: ${K.bgDark}; }
         ::-webkit-scrollbar-thumb { background: ${K.borderHot}; border-radius: 2px; }
+
+        @media (max-width: 900px) {
+          .app-topbar,
+          .app-statusbar,
+          .app-header-meta {
+            gap: 10px !important;
+          }
+
+          .app-topbar,
+          .app-statusbar {
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+          }
+
+          .app-header,
+          .app-terminal {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          body {
+            overflow: auto;
+          }
+
+          .app-topbar,
+          .app-statusbar {
+            align-items: flex-start !important;
+            flex-direction: column !important;
+          }
+
+          .app-topbar-right,
+          .app-statusbar > div,
+          .app-header-meta,
+          .app-skills-strip {
+            flex-wrap: wrap !important;
+          }
+
+          .app-topbar-right {
+            gap: 10px !important;
+          }
+
+          .app-header {
+            padding-top: 12px !important;
+          }
+
+          .app-terminal {
+            padding-top: 12px !important;
+            padding-bottom: 18px !important;
+            font-size: 13px !important;
+          }
+
+          .app-chrome-dot {
+            width: 10px !important;
+            height: 10px !important;
+          }
+
+          .contacts-overlay {
+            align-items: flex-start !important;
+            padding: 16px 0 !important;
+            overflow-y: auto !important;
+          }
+
+          .contacts-window {
+            width: min(540px, calc(100vw - 20px)) !important;
+            margin: 0 auto !important;
+            max-height: calc(100vh - 32px) !important;
+            overflow: hidden !important;
+          }
+
+          .contacts-content {
+            max-height: calc(100vh - 96px) !important;
+            overflow-y: auto !important;
+            padding: 18px !important;
+          }
+
+          .contacts-profile,
+          .contacts-row {
+            align-items: flex-start !important;
+            flex-direction: column !important;
+          }
+
+          .contacts-label,
+          .contacts-copy {
+            min-width: 0 !important;
+          }
+
+          .contacts-link {
+            width: 100% !important;
+          }
+
+          .contacts-copy {
+            align-self: flex-start !important;
+          }
+        }
       `}</style>
 
       {/* Boot screen */}
@@ -180,15 +276,16 @@ export default function App() {
           ))}
 
           {/* ── TOP BAR ─────────────────────────────────────────── */}
-          <div style={{
+          <div className="app-topbar" style={{
             display: "flex", alignItems: "center", justifyContent: "space-between",
+            flexWrap: "wrap", gap: 12,
             padding: "7px 20px", background: K.bgDark,
             borderBottom: `1px solid ${K.border}`, flexShrink: 0, zIndex: 10,
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <div style={{ display: "flex", gap: 6 }}>
                 {[K.red, K.yellow, K.green].map((c, i) => (
-                  <div key={i} style={{
+                  <div key={i} className="app-chrome-dot" style={{
                     width: 12, height: 12, borderRadius: "50%",
                     background: c, boxShadow: `0 0 8px ${c}99`, cursor: "pointer",
                   }} />
@@ -198,7 +295,7 @@ export default function App() {
                 amanuel@portfolio:~ — bash
               </span>
             </div>
-            <div style={{ display: "flex", gap: 20, alignItems: "center", fontSize: 11 }}>
+            <div className="app-topbar-right" style={{ display: "flex", gap: 20, alignItems: "center", fontSize: 11 }}>
               <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                 <div style={{
                   width: 7, height: 7, borderRadius: "50%",
@@ -216,7 +313,7 @@ export default function App() {
           </div>
 
           {/* ── PERSONAL HEADER ─────────────────────────────────── */}
-          <div style={{ padding: "10px 24px 0", flexShrink: 0, zIndex: 10, animation: "fadeSlide 0.6s ease" }}>
+          <div className="app-header" style={{ padding: "10px 24px 0", flexShrink: 0, zIndex: 10, animation: "fadeSlide 0.6s ease" }}>
             <div style={{ display: "flex", flexDirection: "column", marginBottom: 8 }}>
               {/* Name */}
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
@@ -271,7 +368,7 @@ export default function App() {
               </div>
             </div>
             {/* Skills strip */}
-            <div style={{
+            <div className="app-skills-strip" style={{
               display: "flex", gap: 10, paddingBottom: 8,
               borderBottom: `1px solid ${K.border}`,
               flexWrap: "wrap", alignItems: "center",
@@ -289,7 +386,7 @@ export default function App() {
           </div>
 
           {/* ── TERMINAL BODY ────────────────────────────────────── */}
-          <div style={{
+          <div className="app-terminal" style={{
             flex: 1, overflow: "auto",
             padding: "14px 24px", fontSize: 14, lineHeight: 1.6, zIndex: 10,
           }}>
@@ -354,7 +451,7 @@ export default function App() {
           </div>
 
           {/* ── STATUS BAR ──────────────────────────────────────── */}
-          <div style={{
+          <div className="app-statusbar" style={{
             display: "flex", justifyContent: "space-between", alignItems: "center",
             padding: "4px 18px", background: K.bgDark,
             borderTop: `1px solid ${K.border}`,
